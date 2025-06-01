@@ -6,8 +6,9 @@ dist/
 wheels/
 *.egg-info
 
-# Virtual environments
+# Virtual and local environments
 .venv
 .env
 
+# Pycache files
 .pytest_cache/
