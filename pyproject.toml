@@ -1,0 +1,15 @@
+[project]
+name = "message-handler-lib"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "boto3>=1.38.27",
+    "confluent-kafka>=2.10.0",
+    "pydantic>=2.11.5",
+]
+[tool.ruff]
+indent-width = 2
+
+
