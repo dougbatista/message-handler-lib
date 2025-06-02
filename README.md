@@ -43,6 +43,8 @@ def run():
   message_id = sqs_producer.send_message(message_body=str(message))
 
   print(f"Message processed and sent with ID: {message_id}")
+
+run()
 ```
 
 ## Components
