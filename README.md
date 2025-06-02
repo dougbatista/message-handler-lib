@@ -6,27 +6,27 @@ A Python library for handling and processing messages from SQS queues.
 
 This library provides a flexible way to handle messages from Amazon SQS (Simple Queue Service) queues with customizable message parsing and processing capabilities.
 
-## Usage
+## Usage SQS Consumer
 
 ```python
 from core.handler import MessageHandler
 from parsers.sqs_parser import SQSParser
-from sources.sqs_consumer import poll_sqs
+from sources.sqs_consumer import SqsConsumer
 
-# Define your message processing logic
-def process_message(message):
-  return True
+def message_processor(message):
+  print(message)
 
-# Initialize parser and handler
-parser = SQSParser()
-handler = MessageHandler(parser, processor=process_message)
+def run():
+  parser = SQSParser()
+  handler = MessageHandler(parser, processor=message_processor)
 
-# Start polling messages
-poll_sqs(
-  queue_url="YOUR_QUEUE_URL",
-  number_of_messages=10,
-  handler=handler,
-)
+  sqs_consumer = SqsConsumer(
+    queue_url="YOUR_QUEUE", number_of_messages=10, handler=handler
+  )
+
+  sqs_consumer.poll_sqs()
+
+run()
 ```
 
 ## Components
@@ -34,14 +34,6 @@ poll_sqs(
 - `MessageHandler`: Core component that orchestrates message parsing and processing
 - `SQSParser`: Parser implementation for SQS messages
 - `poll_sqs`: Function to poll messages from an SQS queue
-
-## Configuration
-
-Set your SQS queue URL through environment variables:
-
-```bash
-LOCAL_STACK_QUEUE_URL=your-queue-url
-```
 
 ## Requirements
 
