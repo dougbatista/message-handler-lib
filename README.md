@@ -14,6 +14,7 @@ from parsers.sqs_parser import SQSParser
 from sources.sqs_consumer import SqsConsumer
 
 def message_processor(message):
+  # Implement your code here
   print(message)
 
 def run():
