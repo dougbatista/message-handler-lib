@@ -29,6 +29,12 @@ def run():
 run()
 ```
 
+### Components
+
+- `MessageHandler`: Core component that orchestrates message parsing and processing
+- `SQSParser`: Parser implementation for SQS messages
+- `poll_sqs`: Function to poll messages from an SQS queue
+
 ## Usage SQS Producer
 
 ```python
@@ -46,12 +52,6 @@ def run():
 
 run()
 ```
-
-## Components
-
-- `MessageHandler`: Core component that orchestrates message parsing and processing
-- `SQSParser`: Parser implementation for SQS messages
-- `poll_sqs`: Function to poll messages from an SQS queue
 
 ## Requirements
 
