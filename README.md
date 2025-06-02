@@ -21,7 +21,7 @@ def run():
   handler = MessageHandler(parser, processor=message_processor)
 
   sqs_consumer = SqsConsumer(
-    queue_url="YOUR_QUEUE", number_of_messages=10, handler=handler
+    queue_url="YOUR_QUEUE_URL_HERE", number_of_messages=10, handler=handler
   )
 
   sqs_consumer.poll_sqs()
@@ -37,7 +37,7 @@ from sources.sqs_producer import SqsProducer
 
 def run():
   sqs_producer = SqsProducer(
-    queue_url="http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/localstack-queue-output"
+    queue_url="YOUR_QUEUE_URL_HERE"
   )
 
   message_id = sqs_producer.send_message(message_body=str(message))
