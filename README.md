@@ -29,6 +29,22 @@ def run():
 run()
 ```
 
+## Usage SQS Producer
+
+```python
+
+from sources.sqs_producer import SqsProducer
+
+def run():
+  sqs_producer = SqsProducer(
+    queue_url="http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/localstack-queue-output"
+  )
+
+  message_id = sqs_producer.send_message(message_body=str(message))
+
+  print(f"Message processed and sent with ID: {message_id}")
+```
+
 ## Components
 
 - `MessageHandler`: Core component that orchestrates message parsing and processing
