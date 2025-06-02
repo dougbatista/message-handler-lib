@@ -8,3 +8,6 @@ class Message(BaseModel):
   source: Literal["kafka", "sqs", "http"]
   payload: Dict[str, Any]
   timestamp: str
+
+
+# class MessageResponse(BaseModel):

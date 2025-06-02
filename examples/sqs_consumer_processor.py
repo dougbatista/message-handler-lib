@@ -3,20 +3,9 @@ import os
 from core.handler import MessageHandler
 from parsers.sqs_parser import SQSParser
 from sources.sqs_consumer import SqsConsumer
-from sources.sqs_producer import SqsProducer
 
 
 def process_message(message):
-  print(f"Processing message: {message}")
-
-  sqs_producer = SqsProducer(
-    queue_url="http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/localstack-queue-output"
-  )
-
-  message_id = sqs_producer.send_message(message_body=str(message))
-
-  print(f"Message processed and sent with ID: {message_id}")
-
   return True
 
 

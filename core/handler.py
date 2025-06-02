@@ -1,4 +1,5 @@
 from logger import logger
+from models.message import Message
 
 
 class MessageHandler:
@@ -35,7 +36,7 @@ class MessageHandler:
     self.parser = parser
     self.processor = processor
 
-  def handle(self, raw_message):
+  def handle(self, raw_message) -> Message:
     """
     Process a raw message using the configured parser and processor.
 
